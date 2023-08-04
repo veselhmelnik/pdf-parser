@@ -1,4 +1,3 @@
-import React from "react";
 import '../App.css'
 
 const MainInfo = ({ text }) => {
@@ -9,12 +8,14 @@ const MainInfo = ({ text }) => {
   let floorReg = /\d{1,2}.(?=Floors)/gm;
   let bedroomsReg = /\d{1,2}.(?=Bedrooms)/gm;
   let bathesReg = /(?<=Bedrooms)(.*)(?=Bathroom)/gm;
+
   if (formattedText) {
     const address = formattedText[0].match(addressReg);
     const area = formattedText[0].match(areaReg);
     const floors = formattedText[0].match(floorReg);
     const bedrooms = formattedText[0].match(bedroomsReg);
     const bathes = formattedText[0].match(bathesReg);
+
     return (
       <div>
         <ul
