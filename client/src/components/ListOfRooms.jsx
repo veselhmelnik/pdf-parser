@@ -18,7 +18,7 @@ const ListOfRooms = ({ text }) => {
 
   return (
     <div className="listOfFloors">
-        {floors.map((item, i) => {
+        {floors.map((item) => {
           const floorName = item[0];
           const floorType = item[1];
           const floorNameChecked = floorNameChecker(floorName);
@@ -27,7 +27,7 @@ const ListOfRooms = ({ text }) => {
           return (
               <List
               key={uuidv4()}
-                style={{ width: `${100 / floorsNumber}%`, maxWidth: '300px'}}
+                // style={{width: `${100 / floorsNumber}%`}}
                 header={
                   <div >
                     <div>

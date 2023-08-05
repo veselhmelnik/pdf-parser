@@ -16,19 +16,23 @@ export function getRoomsArr(formattedText, setFloors) {
         floorType = formattedText[i].match(floorTypeDwellingReg);
       }
       const rooms = formattedText[i].match(roomsReg);
-      if (floorName[0] !== null && floorType[0] !== null) {
-        floorsArr.push([
-          floorName[0],
-          floorType[0],
-          ...rooms.map((item) => {
-            if (item.includes("ft")) {
-              const reg = /[A-Z]\D{1,15}\d\d/;
-              return item.match(reg)[0].trim();
-            } else {
-              return item.trim();
-            }
-          }),
-        ]);
+      try {
+        if (floorName[0] !== null && floorType[0] !== null) {
+          floorsArr.push([
+            floorName[0],
+            floorType[0],
+            ...rooms.map((item) => {
+              if (item.includes("ft")) {
+                const reg = /[A-Z]\D{1,15}\d\d/;
+                return item.match(reg)[0].trim();
+              } else {
+                return item.trim();
+              }
+            }),
+          ]);
+        }
+      } catch (err) {
+        console.log('Неправильний тип репорту');
       }
     }
     setFloors((floors) => [...floors, ...floorsArr]);

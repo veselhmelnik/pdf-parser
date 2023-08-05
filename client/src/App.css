@@ -42,6 +42,14 @@
     justify-content: center;
     margin-top: 10px;
     gap: 20px;
+    
+}
+
+@media screen and (max-width: 900px){ 
+    .listOfFloors {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .loading {
