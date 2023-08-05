@@ -1,3 +1,3 @@
-export const URL = "http://localhost:8000/extract-text";
+export const URL = "/extract-text";
 export const listOfDwellingRooms = ['Entry', 'Hallway', 'Kitchen', 'Living Room', 'Den', 'Dining', 'Family Room', 'Bathroom', 'Water Closet', 'Bedroom', 'Closet', 'Walk-In Closet', 'Laundry', 'Room', 'Media Room', 'Loft', 'Pantry', 'Recreation  Room', 'Stairs', 'Sun Room', 'Unfinished', 'Garage', 'Utility/Storage', 'Bay Window', 'Void', 'Linen'];
 export const listOfOtherStructureRooms = ['Shed', 'Barn', 'Greenhouse', 'Workshop', 'Pole Building', 'Stables', 'Riding Area', 'Pool House', 'Garage', 'Bathroom', 'Water Closet', 'Kitchen', 'Room', 'Bedroom', 'Closet', 'Void'];
