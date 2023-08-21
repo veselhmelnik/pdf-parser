@@ -6,12 +6,14 @@ import {
 export function floorNameChecker(floor) {
     const aboveFloorReg = /Dwelling \w\/NA\/Above Grade \w/;
     const belowFloorReg = /Dwelling \w\/NA\/Below Grade \w/;
+    const atticFloorReg = /Dwelling \w\/NA\/Attic/;
     const OtheStructureFloorReg = /Other Structure \w\/NA\//;
 
     if (
       floor.match(OtheStructureFloorReg) ||
       floor.match(belowFloorReg) ||
-      floor.match(aboveFloorReg)
+      floor.match(aboveFloorReg) ||
+      floor.match(atticFloorReg)
     ) {
       return "default";
     }
@@ -27,6 +29,9 @@ export function floorNameChecker(floor) {
     }
     if (floor.includes("Other Structure")) {
       if (!type.includes("Detached")) return "danger";
+    }
+    if (floor.includes("Attic")) {
+      if(!type.includes("Above Grade Non GLA")) return danger
     }
     return "default";
   };
@@ -51,9 +56,8 @@ export function floorNameChecker(floor) {
         return "Неправильна нумерацiя";
       }
     }
-    if (checkNumber > 9 && checkNumber < 10) {
+    if (checkNumber >= 10) {
       prevRoom = `${room.slice(0, -3)}-${checkNumber}`;
-      console.log(room, prevRoom);
       if (!newArr.includes(prevRoom)) {
         return "Неправильна нумерацiя";
       }

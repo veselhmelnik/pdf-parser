@@ -23,11 +23,9 @@ const ListOfRooms = ({ text }) => {
           const floorType = item[1];
           const floorNameChecked = floorNameChecker(floorName);
           const floorTypeChecked = floorTypeChecker(floorName, floorType);
-          const floorsNumber = floors.length;
           return (
               <List
               key={uuidv4()}
-                // style={{width: `${100 / floorsNumber}%`}}
                 header={
                   <div >
                     <div>

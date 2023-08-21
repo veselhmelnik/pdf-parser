@@ -16,6 +16,8 @@ const MainInfo = ({ text }) => {
     const bedrooms = formattedText[0].match(bedroomsReg);
     const bathes = formattedText[0].match(bathesReg);
 
+    const link = `https://www.zillow.com/homes/for_sale/${address}_rb/?fromHomePage=true&shouldFireSellPageImplicitClaimGA=false&fromHomePageTab=buy`
+
     return (
       <div>
         <ul
@@ -25,13 +27,13 @@ const MainInfo = ({ text }) => {
           }}
         >
           <li>
-            <b>Address:</b> {address}
+            <b>Address:</b> <a href={link} target='_blank'>{address}</a>
           </li>
           <li>
             <b>Area:</b> {area}
           </li>
           <li>
-            <b>Floors:</b> {floors}
+            <b>Floors:</b> {floors || 1}
           </li>
           <li>
             <b>Bedrooms:</b> {bedrooms}

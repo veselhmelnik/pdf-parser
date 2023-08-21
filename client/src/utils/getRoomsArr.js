@@ -4,6 +4,10 @@ export function getRoomsArr(formattedText, setFloors) {
     let floorTypeOtherReg = /\D{11} (?=Other Structure \d\/(.*)(?= RoomFloor))/;
     let floorNameDwellingReg = /Dwelling \d.NA\/(.*\s)(?=RoomFloor)/g
     let floorTypeDwellingReg = /\D{12} (?=Dwelling \d.NA\/)/g;
+    let floorNameRoofReg = /Dwelling \d.NA\/(.*\s)(?=RoomFloor)/g
+    let floorTypeRoofReg = /Roof/;
+    let floorNameAtticReg = /Dwelling \d.NA\/(.*\s)(?=RoomFloor)/g
+    let floorTypeAtticReg = /\D{20} (?=Dwelling \d.NA\/)/g;
     let roomsReg = /\D{1,16}-\d\d/gm;
     let floorName;
     let floorType;
@@ -11,7 +15,15 @@ export function getRoomsArr(formattedText, setFloors) {
       if (formattedText[i].includes("Other Structure")) {
         floorName = formattedText[i].match(floorNameOtherReg);
         floorType = formattedText[i].match(floorTypeOtherReg);
-      } else {
+      } else if (formattedText[i].includes("Attic")) {
+        floorName = formattedText[i].match(floorNameAtticReg);
+        floorType = formattedText[i].match(floorTypeAtticReg);
+      }else if (formattedText[i].includes("Roof")) {
+        floorName = formattedText[i].match(floorNameRoofReg);
+        floorType = formattedText[i].match(floorTypeRoofReg);
+        console.log(floorName, floorType);
+      }
+       else {
         floorName = formattedText[i].match(floorNameDwellingReg);
         floorType = formattedText[i].match(floorTypeDwellingReg);
       }
